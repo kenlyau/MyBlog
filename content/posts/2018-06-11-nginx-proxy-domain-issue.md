@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  nginx-proxy-domain-issue
+image: "/image/pawel_czerwinski_1.jpg"
 date:   2018-06-10 22:06:25
 categories: technique
 tags: [nginx, liunx]

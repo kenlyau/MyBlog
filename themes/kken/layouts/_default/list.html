@@ -1,15 +1,21 @@
 {{ define "main" }}
-  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
-      {{- .Content -}}
+<div class="container">
+    <div class="taxonomy-header">
+       <div class="text-center">{{- .Content -}}</div>
+    </div>
+    <section class="archive">
+        {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+            {{ range $index, $element := .Pages}}
+                {{ if eq $index 0 }}
+                <h3>{{ $element.Date.Format "2006" }}</h3>
+                {{ end }}
+                <p>
+                    <span class="date">{{ $element.Date.Format "2006-01-02" }}</span>
+                    <a href="{{ $element.RelPermalink }}">{{ $element.Title }}</a>
+                </p>
+            {{ end }}
+        {{ end }}
     </section>
-    <section class="flex-ns flex-wrap justify-around mt5">
-      {{ range .Paginator.Pages }}
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          {{- partial "summary.html" . -}}
-        </div>
-      {{ end }}
-    </section>
-    {{- template "_internal/pagination.html" . -}}
-  </article>
+    {{ template "_internal/pagination.html" . }}
+</div>
 {{ end }}

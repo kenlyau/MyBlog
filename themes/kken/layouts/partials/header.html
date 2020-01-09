@@ -1,0 +1,35 @@
+{{ $image := .Param "image" }}
+{{ if $image }}
+<div class="container-header has-image" style="background-image: url('{{ $image }}');">
+    <div class="cover">
+        <div class="container">
+            <div class="top">
+                <ul class="navigation">
+                    <li><a href="/posts">{{ i18n "article" }}</a></li>
+                    <li><a href="/about">{{ i18n "about" }}</a></li>
+                    <li><a href="/contact">{{ i18n "contact" }}</a></li>
+                </ul>
+                <a href="/"><span class="top-name">{{ .Site.Title }}</span></a>
+            </div>
+            <div class="cover-inner">
+                <h1>{{ .Params.Title }}</h1>
+                <h3>{{ .Params.description }}</h3>
+                <p>{{ .Params.Date.Format "2006-01-02" }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{{ else }}
+<div class="container-header">
+    <div class="container">
+        <div class="top">
+            <ul class="navigation">
+                <li><a href="/posts">{{ i18n "article" }}</a></li>
+                <li><a href="/about">{{ i18n "about" }}</a></li>
+                <li><a href="/contact">{{ i18n "contact" }}</a></li>
+            </ul>
+            <a href="/"><span class="top-name">{{ .Site.Title }}</span></a>
+        </div>
+    </div>
+</div>
+{{  end }}

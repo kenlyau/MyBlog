@@ -1,12 +1,39 @@
 {{ define "main" }}
-    <h1>{{ .Title }}</h1>
-    <div>{{ .Date.Format "2006-01-02" }}</div>
+<div class="container article-page">
+    {{ if .Param "image" }}
+    <p>&nbsp;</p>
+    {{ else }}
+    <p>&nbsp;</p>
+    <h1 class="title">{{ .Title }}</h1>
+    <div class="date">{{ .Date.Format "2006-01-02" }}</div>
+    {{ end }}
     <div>{{ .Content }}</div>
-    <div>
+    <div class="tags">
+        <strong>{{ i18n "tag" }}：</strong>
         {{ range .Params.tags }}
-        <span>{{ . }}</span>
+        <a href="/tags/{{ . }}"><i class="glyphicon glyphicon-tag"></i>{{ . }}</a>
         {{ end }}
     </div>
-    <div>{{ .Params.categories }}</div>
+    <div class="category">
+        <strong>{{ i18n "category" }}：</strong>
+        <a href="/categories/{{ .Params.categories }}">{{ .Params.categories }}</a>
+    </div>
+    <div class="posts-related">
+            {{ $related := .Site.RegularPages.Related . | first 15 }}
 
+            {{ with $related }}
+                <p><strong>{{ i18n "related" }}：</strong></p>
+                <ul class="list">
+                   {{ range . }}
+                     <li  class="mb2">
+                      <a href="{{ .RelPermalink }}">
+                        {{- .Title -}}
+                      </a>
+                    </li>
+                    {{ end }}
+                </ul>
+            {{ end }}
+    </div>
+    {{ partial "disqus.html" . }}
+</div>
 {{ end }}

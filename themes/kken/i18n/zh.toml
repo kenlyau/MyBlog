@@ -30,3 +30,21 @@ other = "需要电子邮件地址。"
 
 [send]
 other = "发送"
+
+[category]
+other = "分类"
+
+[tag]
+other = "标签"
+
+[article]
+other = "文章"
+
+[contact]
+other = "联系"
+
+[about]
+other = "关于"
+
+[allArticle]
+other = "查看所有"

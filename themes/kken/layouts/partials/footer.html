@@ -1,0 +1,46 @@
+<div class="container-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <strong>{{ i18n "category" }}</strong>
+                <ul class="clearfix">
+                    {{ range .Site.Taxonomies.categories }}
+                        <li class="col-md-4"><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> </li>
+                    {{ end }}
+                </ul>
+                <p>&nbsp;</p>
+                <strong>{{ i18n "tag" }}</strong>
+                <ul class="clearfix">
+                    {{ range .Site.Taxonomies.tags }}
+                        <li class="col-md-4"><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> </li>
+                    {{ end }}
+                </ul>
+            </div>
+    
+            <div class="col-md-6 text-center">
+                <p>Made with <a href="https://gohugo.io">Hugo</a> - Themed by <a href="https://kenlyau.com">kenlyau</a></p>
+                <p>Copyright © <a href="{{ .Site.BaseURL }}">{{ .Site.Params.copyright}}</a></p>
+                <p><a href="http://beian.miit.gov.cn/">{{ .Site.Params.beian}}</a></p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="{{ relURL ($.Site.BaseURL) }}js/jquery.slim.min.js"></script>
+<script type="text/javascript" src="{{ relURL ($.Site.BaseURL) }}js/highlight.min.js"></script>
+<script>
+$(function(){
+    $("pre code").each(function(){
+        var lang = "javascript"
+        var langs = ["css", "html", "go"]
+        var text = $(this).text()
+        $.each(langs, function(i, item){
+            if (text.indexOf("#lang:" + item) == 0){
+                lang = item.split(":")[1]
+            }
+        })
+        $(this).addClass(lang)
+    })
+    hljs.initHighlightingOnLoad();
+})
+</script>

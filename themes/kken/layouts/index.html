@@ -1,10 +1,11 @@
 {{ define "main" }}
-<ul>
-    {{ range .Site.RegularPages }}
-        <li>
-            <a href="{{ .Permalink }}">{{ .Title }}</a>
-            {{ .Params.wikipedia }}
-        </li>
+<div class="container" style="padding: 50px 0;">
+    {{ range first 10 .Site.RegularPages  }}
+        <article>
+            {{ partial "summary.html" . }}
+        </article>
     {{ end }}
-</ul>
+    <p>&nbsp;</p>
+    <a href="/posts" class="btn btn-info btn-info-ghost">{{ i18n "allArticle"}}</a>
+</div>
 {{ end }}

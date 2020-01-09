@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <div class="container">
+    <div class="taxonomy-header">
+        <h2>{{ .Title }} <span>{{ len .Pages }}</span></h2>
+    </div>   
+    <section class="archive">
+        {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
+                {{ range $index, $element := .Pages}}
+                    {{ if eq $index 0 }}
+                    <h3>{{ $element.Date.Format "2006" }}</h3>
+                    {{ end }}
+                    <p>
+                        <span class="date">{{ $element.Date.Format "2006-01-02" }}</span>
+                        <a href="{{ $element.RelPermalink }}">{{ $element.Title }}</a>
+                    </p>
+                {{ end }}
+            {{ end }}
+        </section>
+        {{ template "_internal/pagination.html" . }}
+  </div>
+{{ end }}
