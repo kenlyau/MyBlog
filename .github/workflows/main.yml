@@ -27,7 +27,7 @@ jobs:
         # AccessKeyID
         access-key-id: ${{ AccessKeyID }}
         # AccessKeySceret
-        access-key-secret: ${{ krtsfqMDbMPP6u20zpb1tzlwzKQIUn }}
+        access-key-secret: ${{ AccessKeySceret }}
     
     - name: Deploy
       run: ossutil cp public oss://ken-blog/ -rf
