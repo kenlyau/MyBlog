@@ -1,0 +1,33 @@
+name: push
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.61.0'
+        # extended: true
+
+    - name: Build
+      run: hugo --minify
+    
+    - name: Setup Ossutil
+      uses: manyuanrong/setup-ossutil@v1.0
+      with:
+        # 填写Bucket所在地域的域名信息，可参考访问域名和数据中心。
+        endpoint: "oss-cn-chengdu.aliyuncs.com"
+        # AccessKeyID
+        access-key-id: ${{ AccessKeyID }}
+        # AccessKeySceret
+        access-key-secret: ${{ krtsfqMDbMPP6u20zpb1tzlwzKQIUn }}
+    
+    - name: Deploy
+      run: ossutil cp public oss://ken-blog/ -rf
