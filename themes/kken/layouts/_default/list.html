@@ -7,12 +7,12 @@
         {{ range (.Paginate (.Pages.GroupByDate "2006")).PageGroups }}
             {{ range $index, $element := .Pages}}
                 {{ if eq $index 0 }}
-                <h3>{{ $element.Date.Format "2006" }}</h3>
+                <h2>{{ $element.Date.Format "2006" }}</h3>
                 {{ end }}
-                <p>
+                <h3>
                     <span class="date">{{ $element.Date.Format "2006-01-02" }}</span>
                     <a href="{{ $element.RelPermalink }}">{{ $element.Title }}</a>
-                </p>
+                </h3>
             {{ end }}
         {{ end }}
     </section>

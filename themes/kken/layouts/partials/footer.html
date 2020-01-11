@@ -1,23 +1,23 @@
 <div class="container-footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 col-xs-12">
                 <strong>{{ i18n "category" }}</strong>
                 <ul class="clearfix">
                     {{ range .Site.Taxonomies.categories }}
-                        <li class="col-md-4"><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> </li>
+                        <li class="col-md-4 col-xs-4"><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> </li>
                     {{ end }}
                 </ul>
                 <p>&nbsp;</p>
                 <strong>{{ i18n "tag" }}</strong>
                 <ul class="clearfix">
                     {{ range .Site.Taxonomies.tags }}
-                        <li class="col-md-4"><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> </li>
+                        <li class="col-md-4 col-xs-4"><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> </li>
                     {{ end }}
                 </ul>
             </div>
     
-            <div class="col-md-6 text-center">
+            <div class="col-md-6 col-xs-12 text-center">
                 <p>Made with <a href="https://gohugo.io">Hugo</a> - Themed by <a href="https://kenlyau.com">kenlyau</a></p>
                 <p>Copyright © <a href="{{ .Site.BaseURL }}">{{ .Site.Params.copyright}}</a></p>
                 <p><a href="http://beian.miit.gov.cn/">{{ .Site.Params.beian}}</a></p>
