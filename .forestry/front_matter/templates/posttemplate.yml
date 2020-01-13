@@ -18,4 +18,5 @@ fields:
   name: tags
   label: tags
 pages:
+- content/posts/postgresql-setup.md
 - content/posts/利用github-action自动发布blog到阿里云oss.md
