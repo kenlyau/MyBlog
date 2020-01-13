@@ -1,7 +1,6 @@
 +++
 categories = "tech"
 date = 2020-01-12T16:00:00Z
-draft = true
 layout = "post"
 tags = ["database", "postgresql"]
 title = "postgresql-setup"
