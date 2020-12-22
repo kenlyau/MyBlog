@@ -1,7 +1,6 @@
 +++
 categories = "tech"
 date = 2020-12-21T16:00:00Z
-draft = true
 layout = "post"
 tags = ["Android", "apk"]
 title = "apk文件反编译与重新打包签名"
