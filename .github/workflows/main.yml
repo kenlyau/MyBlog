@@ -30,4 +30,7 @@ jobs:
         access-key-secret: ${{ secrets.AccessKeySceret }}
     
     - name: Deploy
+        uses: NuGet/setup-nuget@v1.0.2
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       run: ossutil cp public oss://ken-blog/ -rf
