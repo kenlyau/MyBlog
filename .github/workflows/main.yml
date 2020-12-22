@@ -21,6 +21,8 @@ jobs:
     
     - name: Setup Ossutil
       uses: manyuanrong/setup-ossutil@v1.0
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       with:
         # 填写Bucket所在地域的域名信息，可参考访问域名和数据中心。
         endpoint: "oss-cn-chengdu.aliyuncs.com"
