@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "pve 命令行功能展示"
-date:   2023-1-07 20:46:15
+date:   2023-01-07 20:46:15
 categories: technique
 tags: [lab,pve]
 ---
