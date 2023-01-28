@@ -21,6 +21,8 @@ $./edit-config python.d/sensors.conf
 ### 安装linux下传感器工具lm-sensors
 ```
 $apt-get install lm-sensors -y
+$sensors-detect
+$sensors
 ```
 
 ### netdata 常用命令
